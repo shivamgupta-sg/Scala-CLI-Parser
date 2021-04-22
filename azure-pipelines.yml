@@ -16,8 +16,8 @@ parameters:
     default: false
 
 steps:
-- script: echo Welcome to azure pipeline!
-  displayName: 'Run a one-line script'
+# - script: echo Welcome to azure pipeline!
+#   displayName: 'Run a one-line script'
 
 # - script: |
 #     echo Add other tasks to build, test, and deploy your project.
