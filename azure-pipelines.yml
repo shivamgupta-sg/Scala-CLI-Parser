@@ -9,9 +9,6 @@ trigger:
 pr: 
 - main
 
-pool:
-  vmImage: ubuntu-latest
-
 parameters:
   - name: create_release
     displayName: Create Release
@@ -26,6 +23,7 @@ steps:
 #     echo Add other tasks to build, test, and deploy your project.
 #     echo See https://aka.ms/yaml
 #   displayName: 'Run a multi-line script'
+
 - task: GitHubRelease@1
   condition: and(succeeded(), eq('${{ parameters.create_tag }}', true))
   inputs:
