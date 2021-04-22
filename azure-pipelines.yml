@@ -13,7 +13,8 @@ pool:
   vmImage: ubuntu-latest
 
 parameters:
-  - name: create release
+  - name: create_release
+    displayName: Create Release
     type: boolean
     default: false
 
@@ -26,7 +27,7 @@ steps:
 #     echo See https://aka.ms/yaml
 #   displayName: 'Run a multi-line script'
 - task: GitHubRelease@1
-  condition: and(succeeded(), eq('${{ parameters.create tag }}', true))
+  condition: and(succeeded(), eq('${{ parameters.create_tag }}', true))
   inputs:
     gitHubConnection: 'github.com_shivamgupta-sg'
     repositoryName: '$(Build.Repository.Name)'
