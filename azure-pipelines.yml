@@ -15,6 +15,7 @@ pool:
 parameters:
   - name: create_tag
     type: boolean
+    default: false
 
 steps:
 - script: echo Welcome to azure pipeline!
@@ -25,6 +26,7 @@ steps:
 #     echo See https://aka.ms/yaml
 #   displayName: 'Run a multi-line script'
 - task: GitHubRelease@1
+  condition: and(succeeded(), eq('${{ parameters.create_tag }}', true))
   inputs:
     gitHubConnection: 'github.com_shivamgupta-sg'
     repositoryName: '$(Build.Repository.Name)'
