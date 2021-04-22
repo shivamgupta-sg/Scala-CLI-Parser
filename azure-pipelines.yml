@@ -16,9 +16,6 @@ parameters:
   - name: create_tag
     default: no
     type: boolean
-    values:
-      - yes
-      - no
 
 steps:
 - script: echo Welcome to azure pipeline!
