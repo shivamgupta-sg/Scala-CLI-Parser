@@ -25,7 +25,7 @@ steps:
 #   displayName: 'Run a multi-line script'
 
 - task: GitHubRelease@1
-  condition: and(succeeded(), eq('${{ parameters.create_release }}', true))
+  condition: eq('${{ parameters.create_release }}', true)
   inputs:
     gitHubConnection: 'github.com_shivamgupta-sg'
     repositoryName: '$(Build.Repository.Name)'
