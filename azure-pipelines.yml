@@ -8,8 +8,8 @@ trigger:
 
 pr: 
 - main
-pool:
-  vmImage: 'ubuntu-1604'
+# pool:
+#   vmImage: 'ubuntu-1604'
 
 parameters:
   - name: create_release
