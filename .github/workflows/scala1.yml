@@ -27,4 +27,4 @@ jobs:
       uses: matankdr/github-docker-sbt@JDK8-SBT1.3.8
       with:
         # Commands to run
-        command: package
+        command: sbt package
