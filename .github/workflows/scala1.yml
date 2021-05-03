@@ -21,10 +21,20 @@ jobs:
     - name: Run tests
       run: sbt test
       
-    - name: Scala SBT Action
+#     - name: Scala SBT Action
+#       # You may pin to the exact commit or the version.
+#       # uses: matankdr/github-docker-sbt@27084250a313a5ddb0ab671248e4489e057bf3bc
+#       uses: matankdr/github-docker-sbt@JDK8-SBT1.3.8
+#       with:
+#         # Commands to run
+#         command: sbt package
+
+    - name: SBT Action
       # You may pin to the exact commit or the version.
-      # uses: matankdr/github-docker-sbt@27084250a313a5ddb0ab671248e4489e057bf3bc
-      uses: matankdr/github-docker-sbt@JDK8-SBT1.3.8
+      # uses: lokkju/github-action-sbt@1773266342dbc0df0c3aa36e6dc3ef80c72b5121
+      uses: lokkju/github-action-sbt@v0.2.2
       with:
-        # Commands to run
-        command: sbt package
+        # SBT commands
+        commands: package
+        # relative path to the directory containing your build.sbt, if it is not in the root of your repository
+#         sbt_project_directory: # optional, default is ./
