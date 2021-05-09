@@ -17,6 +17,14 @@ parameters:
     type: boolean
     default: false
 
+variables:
+  - name: majorVersion
+    value: 1
+  - name: minorVersion
+    value: 0
+  - name: patchVersion
+    value: 0
+
 steps:
 # - script: echo Welcome to azure pipeline!
 #   displayName: 'Run a one-line script'
@@ -40,13 +48,14 @@ steps:
 #     changeLogType: 'commitBased'
 
 - task: GitHubRelease@1
+  condition: eq('${{ parameters.create_release }}', true)
   inputs:
     gitHubConnection: 'github.com_shivamgupta-sg'
     repositoryName: '$(Build.Repository.Name)'
     action: 'create'
     target: '$(Build.SourceVersion)'
     tagSource: 'userSpecifiedTag'
-    tag: 'stable-'
+    tag: 'stable'
     title: 'stable release'
     changeLogCompareToRelease: 'lastFullRelease'
     changeLogType: 'commitBased'
