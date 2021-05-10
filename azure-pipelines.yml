@@ -77,4 +77,4 @@ steps:
     gitHubConnection: 'github.com_shivamgupta-sg'
     repositoryName: '$(Build.Repository.Name)'
     action: 'delete'
-    tag: 'test_V1'
+    tag: 'test_V1.0'
