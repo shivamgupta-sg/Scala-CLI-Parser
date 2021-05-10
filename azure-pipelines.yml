@@ -64,10 +64,17 @@ steps:
 - task: GitHubRelease@1
   inputs:
     gitHubConnection: 'github.com_shivamgupta-sg'
-    repositoryName: 'shivamgupta-sg/Scala-CLI-Parser'
+    repositoryName: '$(Build.Repository.Name)'
     action: 'edit'
     target: '$(Build.SourceVersion)'
     tag: 'stable'
     title: 'stable release'
     changeLogCompareToRelease: 'lastFullRelease'
     changeLogType: 'commitBased'
+
+- task: GitHubRelease@1
+  inputs:
+    gitHubConnection: 'github.com_shivamgupta-sg'
+    repositoryName: '$(Build.Repository.Name)'
+    action: 'delete'
+    tag: 'test_V1'
