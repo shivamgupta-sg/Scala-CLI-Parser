@@ -1,4 +1,5 @@
 # Starter pipeline
+
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
@@ -55,6 +56,17 @@ steps:
     action: 'create'
     target: '$(Build.SourceVersion)'
     tagSource: 'userSpecifiedTag'
+    tag: 'stable'
+    title: 'stable release'
+    changeLogCompareToRelease: 'lastFullRelease'
+    changeLogType: 'commitBased'
+
+- task: GitHubRelease@1
+  inputs:
+    gitHubConnection: 'github.com_shivamgupta-sg'
+    repositoryName: 'shivamgupta-sg/Scala-CLI-Parser'
+    action: 'edit'
+    target: '$(Build.SourceVersion)'
     tag: 'stable'
     title: 'stable release'
     changeLogCompareToRelease: 'lastFullRelease'
